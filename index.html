@@ -1,0 +1,131 @@
+<!-- <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجات مع عرض السعر</title>
+    <style>
+        .product {
+            margin-bottom: 20px;
+        }
+        .price {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product">
+        <h3>منتج 1</h3>
+        <button onclick="showPrice(1)">عرض السعر</button>
+        <p id="price-1" class="price">100 دولار</p>
+    </div>
+
+    <div class="product">
+        <h3>منتج 2</h3>
+        <button onclick="showPrice(2)">عرض السعر</button>
+        <p id="price-2" class="price">200 دولار</p>
+    </div>
+
+    <div class="product">
+        <h3>منتج 3</h3>
+        <button onclick="showPrice(3)">عرض السعر</button>
+        <p id="price-3" class="price">300 دولار</p>
+    </div>
+
+    <script>
+        function showPrice(productId) {
+            var priceElement = document.getElementById("price-" + productId);
+            priceElement.style.display = "block";
+        }
+    </script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجات</title>
+    <style>
+        .product {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        #total-price {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            display: none; /* اخفاء السعر الكلي في البداية */
+        }
+        img{
+            width: 100px;
+            margin-left: 20px;
+        }
+        body{
+            width: 1000px;
+        }
+        h1{
+            text-align: center;
+            color: blue;
+            margin-bottom: -60px;
+        }
+        button{
+            border: 2px solid rgb(45, 45, 136);
+            border-radius: 20px;
+        }
+        #total-price{
+       text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>اختر المنتجات</h1>
+    
+    <div class="product">
+        <span> <img src="procat1.jpg" alt=""></span>
+        <button onclick="addToCart(50)"> 50 جنيه</button>
+    </div>
+    
+    <div class="product">
+        <span><img src="banner1.jpg" alt=""></span>
+        <button onclick="addToCart(30)"> 30 جنيه</button>
+    </div>
+    
+    <div class="product">
+        <span><img src="procat2.jpg" alt=""></span>
+        <button onclick="addToCart(20)"> 20 جنيه</button>
+    </div>
+
+    <div class="product">
+        <span><img src="procat3.jpg" alt=""> </span>
+        <button onclick="addToCart(40)"> 40 جنيه</button>
+    </div>
+    
+    <div id="total-price">السعر الكلي: 0 جنيه</div>
+
+    <script>
+        let totalPrice = 0;
+        let firstSelection = false;  // متغير للتحقق من أول اختيار
+
+        function addToCart(price) {
+            totalPrice += price;
+
+            // اظهار السعر الكلي فقط عند أول اختيار
+            if (!firstSelection) {
+                document.getElementById('total-price').style.display = 'block';
+                firstSelection = true;
+            }
+
+            // تحديث السعر الكلي
+            document.getElementById('total-price').innerText = 'السعر الكلي: ' + totalPrice + ' جنيه';
+        }
+    </script>
+</body>
+</html>
